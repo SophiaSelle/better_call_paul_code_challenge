@@ -37,20 +37,12 @@ public class data_processing {
         this.dataTable = data_list.toArray(new String[data_list.size()][]);
     }
 
-    /**
-     * @param column_name_a
-     * @param column_name_b
-     * @return 
-     */
     public Float[] calculate_difference(String column_name_a, String column_name_b){
         //Get column from column name
         int column_a_index = Arrays.asList(this.columnNames).indexOf(column_name_a);
         int column_b_index = Arrays.asList(this.columnNames).indexOf(column_name_b);
 
         int column_length = this.dataTable.length;
-        System.out.println("column_a_index"+column_a_index);
-        System.out.println("column length" + column_length);
-        System.out.println(this.dataTable[0][column_a_index]);
         Float[] differences = new Float[column_length];
         for(int i=0; i<column_length; i++){
             //Get the values in row i
@@ -88,9 +80,7 @@ public class data_processing {
     public String getNameOfMax(int name_column_index, Float[] value_column){
         List <Float> numberList = Arrays.asList(value_column);
         int indexOfMax = numberList.indexOf(Collections.max(numberList));
-        System.out.println("indexOfMax" + indexOfMax);
         return this.dataTable[indexOfMax][name_column_index];
-        //return name_column[indexOfMax];
     }
 
     public String getNameOfMaxDifference(String column_a, String column_b, String column_names){
