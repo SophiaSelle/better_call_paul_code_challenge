@@ -98,4 +98,11 @@ public class data_processing {
         int column_names_index = Arrays.asList(this.columnNames).indexOf(column_names);
         return getNameOfMax(column_names_index, difference_column);
     }
+
+    public String getNameOfMaxDivision(String column_a, String column_b, String column_names){
+        Float[] difference_column = this.calculate_division(column_a, column_b);
+        int column_names_index = Arrays.asList(this.columnNames).indexOf(column_names);
+        return getNameOfMax(column_names_index, difference_column);
+    }
+
 }
