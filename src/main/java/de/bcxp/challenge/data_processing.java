@@ -8,12 +8,12 @@ import java.util.List;
 
 import com.opencsv.*;
 
-public class temperature_difference {
+public class data_processing {
 
     String[][] dataTable;
     String[] columnNames;
 
-    public temperature_difference(String data_filename){
+    public data_processing(String data_filename){
         try {
             load_data(data_filename);
         } catch (IOException e) {
