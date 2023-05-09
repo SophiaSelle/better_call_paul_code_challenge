@@ -3,6 +3,7 @@ package de.bcxp.challenge;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import com.opencsv.*;
@@ -52,5 +53,19 @@ public class temperature_difference {
             differences[i]= a_value - b_value;
         }
         return differences;
+    }
+
+    public String getNameOfMax(int name_column_index, Float[] value_column){
+        List <Float> numberList = Arrays.asList(value_column);
+        int indexOfMax = numberList.indexOf(Collections.max(numberList));
+        System.out.println("indexOfMax" + indexOfMax);
+        return this.dataTable[indexOfMax][name_column_index];
+        //return name_column[indexOfMax];
+    }
+
+    public String getNameOfMaxDifference(String column_a, String column_b, String column_names){
+        Float[] difference_column = this.calculate_difference(column_a, column_b);
+        int column_names_index = Arrays.asList(this.columnNames).indexOf(column_names);
+        return getNameOfMax(column_names_index, difference_column);
     }
 }
