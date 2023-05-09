@@ -7,11 +7,12 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.opencsv.*;
 
 public class data_processing {
-
+    Logger logger = Logger.getLogger(data_processing.class.getName());
     String[][] dataTable;
     String[] columnNames;
 
@@ -19,8 +20,8 @@ public class data_processing {
         try {
             load_data(data_filename, separator);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+            logger.severe("Could not load data from file.");
         }
     }
     
@@ -46,9 +47,15 @@ public class data_processing {
         Float[] differences = new Float[column_length];
         for(int i=0; i<column_length; i++){
             //Get the values in row i
-            Float a_value = Float.valueOf(this.dataTable[i][column_a_index]);
-            Float b_value = Float.valueOf(this.dataTable[i][column_b_index]);
-            differences[i]= a_value - b_value;
+            try {
+                Float a_value = Float.valueOf(this.dataTable[i][column_a_index]);
+                Float b_value = Float.valueOf(this.dataTable[i][column_b_index]);
+                differences[i]= a_value - b_value;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                logger.severe("Could not parse data. Check if the file actually contains float numbers.");
+            }
         }
         return differences;
     }
@@ -69,8 +76,8 @@ public class data_processing {
                 a_value = format.parse(this.dataTable[i][column_a_index]).floatValue();
                 b_value = format.parse(this.dataTable[i][column_b_index]).floatValue();
             } catch (ParseException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
+                logger.severe("Could not parse data. Check if the file actually contains float numbers.");
             }
             results[i]= a_value/b_value;
         }
