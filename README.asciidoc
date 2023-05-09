@@ -3,9 +3,11 @@
 
 
 = Submission to BettercallPaul programming challenge
+
 This is my solution for the BettercallPaul programming challenge as it can be found on https://github.com/bettercodepaul/programming-challenge
 
-Regarding Hint 6. "You may use additional third-party dependencies as you see fit. Please include your reasoning for your choice of libraries in your solution."
+Regarding Hint 6 "You may use additional third-party dependencies as you see fit. Please include your **reasoning for your choice of libraries** in your solution."
+
 In this implementation, I decided to use OpenCSV to facilitate the handling of csv files, because it is easy to use and understand.
 
 = BettercallPaul programming challenge
