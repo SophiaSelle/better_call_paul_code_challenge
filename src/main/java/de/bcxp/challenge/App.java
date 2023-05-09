@@ -1,6 +1,5 @@
 package de.bcxp.challenge;
 
-import java.util.Arrays;
 
 /**
  * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
